@@ -1,0 +1,93 @@
+.recent-orders-container {
+  width: 100%;
+}
+
+.orders-loading {
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+.recent-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-orders-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.recent-orders-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.recent-orders-table tr:last-child td {
+  border-bottom: none;
+}
+
+.recent-orders-table a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.recent-orders-table a:hover {
+  text-decoration: underline;
+}
+
+.order-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-processing {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-shipped {
+  background-color: #e0e7ff;
+  color: #4338ca;
+}
+
+.status-completed {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
+.status-cancelled {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.view-all-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.view-all-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,98 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 240px;
+  z-index: 100;
+  transition: width 0.3s ease;
+}
+
+.admin-layout.sidebar-collapsed .sidebar {
+  width: 70px;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 240px; /* Khớp với chiều rộng sidebar */
+  transition: margin-left 0.3s ease;
+  width: calc(100% - 240px);
+}
+
+.admin-layout.sidebar-collapsed .main-content {
+  margin-left: 70px; /* Kích thước của sidebar khi thu gọn */
+  width: calc(100% - 70px);
+}
+
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.content {
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  min-height: calc(100vh - 64px); /* Chiều cao màn hình trừ đi chiều cao header */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .admin-layout.sidebar-mobile-open .sidebar {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .admin-layout.sidebar-collapsed .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .content {
+    padding: 1rem;
+  }
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Dark mode */
+.dark-mode .admin-layout {
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+.dark-mode .admin-content-wrapper {
+  background-color: #1f2937;
+}
+
+.dark-mode .admin-footer {
+  background-color: #111827;
+  border-color: #374151;
+  color: #9ca3af;
+}

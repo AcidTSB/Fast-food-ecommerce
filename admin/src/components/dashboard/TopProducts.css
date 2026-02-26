@@ -1,0 +1,125 @@
+.top-products {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.top-products-header {
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.top-products-header h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.top-products-period {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.top-products-content {
+  padding: 1rem 0;
+}
+
+.top-products-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.top-product-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+}
+
+.top-product-item:last-child {
+  border-bottom: none;
+}
+
+.top-product-item:hover {
+  background-color: #f9fafb;
+}
+
+.top-product-rank {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  width: 2rem;
+  text-align: center;
+}
+
+.top-product-image {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-right: 0.875rem;
+}
+
+.top-product-info {
+  flex: 1;
+}
+
+.top-product-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+  margin: 0 0 0.25rem 0;
+}
+
+.top-product-category {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.top-product-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 5rem;
+}
+
+.top-product-quantity {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.top-product-revenue {
+  font-size: 0.75rem;
+  color: #059669;
+}
+
+.top-products-footer {
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  border-top: 1px solid #e5e7eb;
+}
+
+.top-products-link {
+  font-size: 0.875rem;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.top-products-link:hover {
+  text-decoration: underline;
+}
+
+.top-products-empty {
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+}

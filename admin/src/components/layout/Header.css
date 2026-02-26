@@ -1,0 +1,176 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  height: 64px;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Xóa margin-left trong header vì nó đã được xử lý trong Layout.css */
+
+.page-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, #1e40af, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.search-container {
+  position: relative;
+  margin-right: 1.5rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.search-input {
+  padding: 0.625rem 0.75rem 0.625rem 2.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  width: 240px;
+  transition: all 0.3s ease;
+  color: #374151;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  width: 280px;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.icon-button:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+  transform: translateY(-2px);
+}
+
+.notification-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: linear-gradient(45deg, #ef4444, #f87171);
+  color: white;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  box-sizing: content-box;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.5rem 0.875rem;
+  border-radius: 9999px;
+  transition: all 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+  transform: translateY(-2px);
+}
+
+.logout-text {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Thêm JS để kết nối thu gọn sidebar với header */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.header {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .search-input {
+    width: 180px;
+  }
+  
+  .search-input:focus {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+    margin-left: 0;
+  }
+  
+  body.sidebar-collapsed .header {
+    margin-left: 0;
+  }
+  
+  .search-container {
+    display: none;
+  }
+  
+  .logout-text {
+    display: none;
+  }
+  
+  .page-header h1 {
+    font-size: 1.25rem;
+  }
+}

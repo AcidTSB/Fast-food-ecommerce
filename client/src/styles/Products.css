@@ -1,0 +1,153 @@
+.products-page {
+  min-height: 100vh;
+  padding: 20px 0;
+  background: #f7fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.products-page h1 {
+  text-align: center;
+  color: #2d3748;
+  margin-bottom: 32px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* Filters section */
+.filters-section {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+  margin-bottom: 16px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #e53e3e;
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-btn {
+  padding: 8px 16px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  color: #4a5568;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.category-btn:hover {
+  border-color: #e53e3e;
+  color: #e53e3e;
+}
+
+.category-btn.active {
+  background: #e53e3e;
+  border-color: #e53e3e;
+  color: white;
+}
+
+.error-container {
+  text-align: center;
+  background: #fff;
+  padding: 48px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-container h2 {
+  color: #e53e3e;
+  margin-bottom: 16px;
+}
+
+.error-container p {
+  color: #718096;
+  margin-bottom: 24px;
+}
+
+.error-container button {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.error-container button:hover {
+  background: #c53030;
+}
+
+/* Dark mode */
+.dark .products-page {
+  background: #1a202c;
+}
+
+.dark .filters-section,
+.dark .error-container {
+  background: #2d3748;
+}
+
+.dark .products-page h1 {
+  color: #f7fafc;
+}
+
+.dark .search-input {
+  background: #4a5568;
+  border-color: #718096;
+  color: #f7fafc;
+}
+
+.dark .category-btn {
+  background: #4a5568;
+  border-color: #718096;
+  color: #e2e8f0;
+}
+
+.dark .error-container h2 {
+  color: #f7fafc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .filters-section {
+    padding: 16px;
+  }
+  
+  .products-page h1 {
+    font-size: 24px;
+  }
+}

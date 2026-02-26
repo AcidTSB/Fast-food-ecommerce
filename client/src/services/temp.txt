@@ -1,0 +1,462 @@
+// Environment configuration
+const isDevelopment = process.env.NODE_ENV === 'development';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+
+// ============================================================================
+// MOCK DATA - Sẽ thay bằng database sau
+// ============================================================================
+
+const mockProducts = [
+  {
+    id: 1,
+    name: 'Classic Burger',
+    description: 'Juicy beef patty with fresh vegetables and special sauce',
+    price: 75000,
+    image: '/images/burger-1.jpg',
+    category: 'burgers',
+    is_available: true
+  },
+  {
+    id: 2,
+    name: 'Cheese Pizza',
+    description: 'Traditional pizza with mozzarella cheese and tomato sauce',
+    price: 120000,
+    image: '/images/pizza-1.jpg',
+    category: 'pizza',
+    is_available: true
+  },
+  {
+    id: 3,
+    name: 'Chicken Wings',
+    description: 'Spicy chicken wings with BBQ sauce and herbs',
+    price: 85000,
+    image: '/images/wings-1.jpg',
+    category: 'chicken',
+    is_available: true
+  },
+  {
+    id: 4,
+    name: 'French Fries',
+    description: 'Crispy golden french fries with sea salt',
+    price: 35000,
+    image: '/images/fries-1.jpg',
+    category: 'sides',
+    is_available: true
+  },
+  {
+    id: 5,
+    name: 'Coca Cola',
+    description: 'Refreshing cold drink with ice',
+    price: 15000,
+    image: '/images/coke-1.jpg',
+    category: 'drinks',
+    is_available: true
+  },
+  {
+    id: 6,
+    name: 'Fish Burger',
+    description: 'Crispy fish fillet with tartar sauce and lettuce',
+    price: 65000,
+    image: '/images/fish-burger-1.jpg',
+    category: 'burgers',
+    is_available: true
+  }
+];
+
+const mockCategories = [
+  { id: 1, name: 'burgers', displayName: 'Burgers', icon: '🍔' },
+  { id: 2, name: 'pizza', displayName: 'Pizza', icon: '🍕' },
+  { id: 3, name: 'chicken', displayName: 'Chicken', icon: '🍗' },
+  { id: 4, name: 'sides', displayName: 'Sides', icon: '🍟' },
+  { id: 5, name: 'drinks', displayName: 'Drinks', icon: '🥤' }
+];
+
+// ============================================================================
+// UTILITY FUNCTIONS
+// ============================================================================
+
+const simulateDelay = (ms = 500) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
+
+const enhanceProductForDetail = (product) => {
+  if (!product) return null;
+
+  const getSizesByCategory = (category) => {
+    const sizeMap = {
+      burgers: ['Small', 'Medium', 'Large'],
+      pizza: ['Personal', 'Medium', 'Large', 'Family'],
+      drinks: ['Regular', 'Large'],
+      chicken: ['6 pieces', '12 pieces', '24 pieces'],
+      sides: ['Small', 'Medium', 'Large']
+    };
+    return sizeMap[category] || [];
+  };
+
+  const getIngredientsByCategory = (category) => {
+    const ingredientsMap = {
+      burgers: [
+        'Fresh beef patty (100% pure beef)',
+        'Fresh lettuce leaves',
+        'Ripe tomato slices',
+        'Red onion rings',
+        'Aged cheddar cheese',
+        'Special house sauce',
+        'Sesame seed bun'
+      ],
+      pizza: [
+        'Hand-tossed pizza dough',
+        'San Marzano tomato sauce',
+        'Fresh mozzarella cheese',
+        'Italian herbs (oregano, basil)',
+        'Extra virgin olive oil'
+      ],
+      chicken: [
+        'Fresh chicken wings',
+        'Special spice blend',
+        'Crispy coating flour',
+        'BBQ sauce (homemade)',
+        'Fresh herbs and spices'
+      ],
+      sides: [
+        'Premium Russet potatoes',
+        'Vegetable oil',
+        'Sea salt',
+        'Special seasoning blend'
+      ],
+      drinks: [
+        'Carbonated water',
+        'Natural cola extract',
+        'Sugar or sweetener',
+        'Natural flavors'
+      ]
+    };
+    return ingredientsMap[category] || ['Quality ingredients', 'Fresh preparation'];
+  };
+
+  const getNutritionByCategory = (category) => {
+    const nutritionMap = {
+      burgers: { calories: 540, protein: 25, carbs: 45, fat: 31, sodium: 1040 },
+      pizza: { calories: 285, protein: 12, carbs: 36, fat: 10, sodium: 640 },
+      chicken: { calories: 320, protein: 30, carbs: 8, fat: 18, sodium: 540 },
+      sides: { calories: 365, protein: 4, carbs: 63, fat: 17, sodium: 246 },
+      drinks: { calories: 140, protein: 0, carbs: 39, fat: 0, sodium: 45 }
+    };
+    return nutritionMap[category] || { calories: 250, protein: 15, carbs: 30, fat: 12, sodium: 800 };
+  };
+
+  return {
+    ...product,
+    images: [
+      product.image,
+      '/images/placeholder-food.jpg',
+      '/images/placeholder-food.jpg'
+    ],
+    sizes: getSizesByCategory(product.category),
+    detailedDescription: `${product.description}. 
+
+Được chế biến từ những nguyên liệu tươi ngon nhất, ${product.name.toLowerCase()} của chúng tôi mang đến hương vị đặc biệt không thể quên. Mỗi món ăn được chuẩn bị cẩn thận bởi đội ngũ đầu bếp giàu kinh nghiệm.
+
+Cam kết chất lượng:
+• Nguyên liệu tươi mới 100%
+• Không chất bảo quản
+• Đảm bảo an toàn thực phẩm
+• Giao hàng nhanh chóng trong 30 phút`,
+    
+    ingredients: getIngredientsByCategory(product.category),
+    allergens: 'Có thể chứa: Gluten, Sữa, Trứng. Có thể có dấu vết của hạt, đậu nành.',
+    nutrition: getNutritionByCategory(product.category),
+    rating: Math.round((Math.random() * 1.5 + 3.5) * 10) / 10,
+    reviewCount: Math.floor(Math.random() * 200 + 50),
+    is_available: true,
+    originalPrice: product.price > 50000 ? product.price + Math.floor(Math.random() * 30000 + 10000) : null,
+    discount: product.price > 50000 ? Math.floor(Math.random() * 20 + 10) : null
+  };
+};
+
+const generateMockReviews = (productId) => {
+  const names = ['Nguyễn Văn A', 'Trần Thị B', 'Lê Văn C', 'Phạm Thị D', 'Hoàng Văn E'];
+  const titles = ['Rất ngon!', 'Tuyệt vời!', 'Khá ổn', 'Bình thường', 'Không tệ'];
+  const comments = [
+    'Món ăn ngon, giao hàng nhanh. Sẽ đặt lại! Chất lượng tuyệt vời.',
+    'Phục vụ nhiệt tình, đồ ăn tươi ngon. Giá cả hợp lý.',
+    'Vị ổn, presentation đẹp. Có thể cải thiện thêm về độ nóng.',
+    'Không có gì đặc biệt nhưng cũng không tệ. Bình thường.',
+    'Lần đầu thử, cảm giác khá ổn. Sẽ thử các món khác.'
+  ];
+
+  const reviewCount = Math.floor(Math.random() * 4 + 3);
+  const reviews = [];
+
+  for (let i = 0; i < reviewCount; i++) {
+    reviews.push({
+      id: Date.now() + i,
+      productId: parseInt(productId),
+      name: names[Math.floor(Math.random() * names.length)],
+      rating: Math.floor(Math.random() * 2 + 4),
+      title: titles[Math.floor(Math.random() * titles.length)],
+      comment: comments[Math.floor(Math.random() * comments.length)],
+      date: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+      verified: Math.random() > 0.2
+    });
+  }
+
+  return reviews;
+};
+
+// ============================================================================
+// MAIN API FUNCTIONS
+// ============================================================================
+
+export const getProducts = async () => {
+  if (isDevelopment) {
+    await simulateDelay();
+    console.log('🔧 Using mock data for products');
+    return mockProducts;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/products`);
+    if (!response.ok) throw new Error('Failed to fetch products');
+    return await response.json();
+  } catch (error) {
+    console.warn('API failed, falling back to mock data');
+    return mockProducts;
+  }
+};
+
+export const getProductById = async (id) => {
+  if (isDevelopment) {
+    await simulateDelay(300);
+    console.log(`🔧 Loading product detail for ID: ${id}`);
+    
+    const product = mockProducts.find(p => p.id === parseInt(id));
+    if (!product) {
+      throw new Error('Product not found');
+    }
+    
+    const enhancedProduct = enhanceProductForDetail(product);
+    console.log('✅ Enhanced product data:', enhancedProduct);
+    return enhancedProduct;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/products/${id}`);
+    if (!response.ok) throw new Error('Product not found');
+    const product = await response.json();
+    return enhanceProductForDetail(product);
+  } catch (error) {
+    console.warn('API failed, falling back to mock data');
+    const product = mockProducts.find(p => p.id === parseInt(id));
+    if (!product) throw new Error('Product not found');
+    return enhanceProductForDetail(product);
+  }
+};
+
+export const getRelatedProducts = async (productId) => {
+  if (isDevelopment) {
+    await simulateDelay(200);
+    console.log(`🔧 Loading related products for product ${productId}`);
+    
+    const currentProduct = mockProducts.find(p => p.id === parseInt(productId));
+    if (!currentProduct) return [];
+    
+    const relatedProducts = mockProducts
+      .filter(p => p.category === currentProduct.category && p.id !== parseInt(productId))
+      .slice(0, 4);
+      
+    console.log('✅ Related products:', relatedProducts);
+    return relatedProducts;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/products/${productId}/related`);
+    if (!response.ok) throw new Error('Failed to fetch related products');
+    return await response.json();
+  } catch (error) {
+    console.warn('API failed, falling back to mock data');
+    const currentProduct = mockProducts.find(p => p.id === parseInt(productId));
+    if (!currentProduct) return [];
+    return mockProducts
+      .filter(p => p.category === currentProduct.category && p.id !== parseInt(productId))
+      .slice(0, 4);
+  }
+};
+
+export const getCategories = async () => {
+  if (isDevelopment) {
+    await simulateDelay();
+    console.log('🔧 Using mock data for categories');
+    return mockCategories;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/categories`);
+    if (!response.ok) throw new Error('Failed to fetch categories');
+    return await response.json();
+  } catch (error) {
+    console.warn('API failed, falling back to mock data');
+    return mockCategories;
+  }
+};
+
+export const getFeaturedProducts = async () => {
+  if (isDevelopment) {
+    await simulateDelay();
+    console.log('🔧 Using mock data for featured products');
+    return mockProducts.slice(0, 6);
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/products/featured`);
+    if (!response.ok) throw new Error('Failed to fetch featured products');
+    return await response.json();
+  } catch (error) {
+    console.warn('API failed, falling back to mock data');
+    return mockProducts.slice(0, 6);
+  }
+};
+
+export const getProductReviews = async (productId) => {
+  if (isDevelopment) {
+    await simulateDelay(400);
+    console.log(`🔧 Loading reviews for product ${productId}`);
+    
+    const reviews = generateMockReviews(productId);
+    console.log('✅ Generated reviews:', reviews);
+    return reviews;
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/products/${productId}/reviews`);
+    if (!response.ok) throw new Error('Failed to fetch reviews');
+    return await response.json();
+  } catch (error) {
+    console.warn('API failed, falling back to mock data');
+    return generateMockReviews(productId);
+  }
+};
+
+export const submitReview = async (reviewData) => {
+  if (isDevelopment) {
+    await simulateDelay(1000);
+    console.log('🔧 Mock review submission:', reviewData);
+    
+    return { 
+      success: true, 
+      message: 'Đánh giá đã được gửi thành công!',
+      review: {
+        ...reviewData,
+        id: Date.now(),
+        date: new Date().toISOString().split('T')[0],
+        verified: false
+      }
+    };
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/reviews`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(reviewData)
+    });
+    if (!response.ok) throw new Error('Failed to submit review');
+    return await response.json();
+  } catch (error) {
+    console.error('Review submission failed:', error);
+    throw new Error('Không thể gửi đánh giá. Vui lòng thử lại.');
+  }
+};
+
+// ============================================================================
+// FUTURE BACKEND INTEGRATION (Placeholder)
+// ============================================================================
+
+export const createOrder = async (orderData) => {
+  if (isDevelopment) {
+    await simulateDelay(1500);
+    console.log('🔧 Mock order creation:', orderData);
+    return {
+      success: true,
+      orderId: `ORDER_${Date.now()}`,
+      message: 'Đơn hàng đã được tạo thành công!'
+    };
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    });
+    if (!response.ok) throw new Error('Failed to create order');
+    return await response.json();
+  } catch (error) {
+    console.error('Order creation failed:', error);
+    throw error;
+  }
+};
+
+export const loginUser = async (credentials) => {
+  if (isDevelopment) {
+    await simulateDelay(800);
+    console.log('🔧 Mock login:', credentials);
+    
+    return {
+      success: true,
+      user: {
+        id: 1,
+        email: credentials.email,
+        firstName: 'John',
+        lastName: 'Doe',
+        phone: '0123456789'
+      },
+      token: 'mock_jwt_token'
+    };
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(credentials)
+    });
+    if (!response.ok) throw new Error('Login failed');
+    return await response.json();
+  } catch (error) {
+    console.error('Login failed:', error);
+    throw error;
+  }
+};
+
+export const registerUser = async (userData) => {
+  if (isDevelopment) {
+    await simulateDelay(800);
+    console.log('🔧 Mock registration:', userData);
+    
+    return {
+      success: true,
+      user: {
+        id: Date.now(),
+        email: userData.email,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        phone: userData.phone
+      },
+      token: 'mock_jwt_token'
+    };
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/auth/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userData)
+    });
+    if (!response.ok) throw new Error('Registration failed');
+    return await response.json();
+  } catch (error) {
+    console.error('Registration failed:', error);
+    throw error;
+  }
+};

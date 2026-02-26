@@ -1,0 +1,152 @@
+.table-container {
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.admin-table thead {
+  background-color: #f9fafb;
+}
+
+.admin-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.admin-table th.sortable {
+  cursor: pointer;
+}
+
+.admin-table th.sortable:hover {
+  background-color: #f3f4f6;
+}
+
+.admin-table th.sorted-asc::after {
+  content: " ↑";
+  opacity: 0.7;
+}
+
+.admin-table th.sorted-desc::after {
+  content: " ↓";
+  opacity: 0.7;
+}
+
+.admin-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.admin-table .actions-cell {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.table-btn {
+  padding: 0.375rem 0.625rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.table-btn-view {
+  background-color: #e0f2fe;
+  color: #0ea5e9;
+}
+
+.table-btn-view:hover {
+  background-color: #bae6fd;
+}
+
+.table-btn-edit {
+  background-color: #dbeafe;
+  color: #3b82f6;
+}
+
+.table-btn-edit:hover {
+  background-color: #bfdbfe;
+}
+
+.table-btn-delete {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
+.table-btn-delete:hover {
+  background-color: #fecaca;
+}
+
+.table-empty {
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.table-loading {
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+}
+
+.pagination-info {
+  color: #4b5563;
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.pagination-btn {
+  padding: 0.375rem 0.625rem;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  background-color: #fff;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #f3f4f6;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-btn.active {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}

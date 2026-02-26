@@ -1,0 +1,37 @@
+.product-detail {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+}
+.product-detail img {
+  max-width: 220px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.price {
+  color: #e67e22;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.combo-suggestions {
+  margin-top: 32px;
+}
+.suggestion-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.suggestion-item {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  width: 120px;
+}
+.suggestion-item img {
+  max-width: 80px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}

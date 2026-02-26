@@ -1,0 +1,81 @@
+:root {
+    --primary-color: #FF5722; /* Orange color for primary elements */
+    --secondary-color: #FFC107; /* Amber color for secondary elements */
+    --background-color-light: #FFFFFF; /* Light mode background */
+    --background-color-dark: #121212; /* Dark mode background */
+    --text-color-light: #212121; /* Light mode text color */
+    --text-color-dark: #E0E0E0; /* Dark mode text color */
+    --border-color: #E0E0E0; /* Border color for elements */
+    --hover-color: rgba(255, 87, 34, 0.1); /* Hover effect color */
+}
+
+body {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--text-color-dark);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the tooltip */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

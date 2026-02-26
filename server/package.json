@@ -1,0 +1,45 @@
+{
+  "name": "fastfood-server",
+  "version": "1.0.0",
+  "description": "FastFood Ecommerce Backend API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "setup-db": "node scripts/setupDatabase_fixed.js",
+    "test-db": "node scripts/test-db.js",
+    "create-admin": "node scripts/create-admin.js",
+    "seed": "node scripts/seed.js",
+    "check-products": "node scripts/check-products-table.js",
+    "fix-products": "node scripts/fix-products-table.js",
+    "recreate-products": "node scripts/recreate-products-table.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^6.8.1",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.0.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.6.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "fastfood",
+    "ecommerce",
+    "api",
+    "nodejs",
+    "express"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

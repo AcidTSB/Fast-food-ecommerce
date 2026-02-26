@@ -1,0 +1,454 @@
+/* Privacy specific overrides and additions */
+.privacy-container {
+  /* Isolate this component */
+  isolation: isolate;
+  position: relative;
+  z-index: 1;
+  
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+  padding-top: 120px; /* Tăng padding để tránh che header */
+  
+  /* Reset styles that might conflict */
+  font-family: inherit;
+  line-height: normal;
+}
+
+.privacy-container.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Ensure header stays on top */
+.privacy-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px; /* Header height */
+  z-index: -1;
+  pointer-events: none;
+}
+
+.privacy-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.privacy-breadcrumb {
+  margin-bottom: 2rem;
+}
+
+.privacy-breadcrumb .breadcrumb-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  font-weight: normal;
+}
+
+.privacy-breadcrumb .breadcrumb-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.privacy-main-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #007bff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.privacy-commitment-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.privacy-commitment-card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.privacy-commitment-card p {
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  font-size: 1.1rem;
+  font-family: inherit;
+}
+
+.security-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.security-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.security-badge span:first-child {
+  font-size: 1.5rem;
+}
+
+.security-badge span:last-child {
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.privacy-section {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #007bff;
+  position: relative;
+}
+
+.privacy-container.dark .privacy-section {
+  background: #2d2d2d;
+  color: #ffffff;
+}
+
+.privacy-section h3 {
+  color: #007bff;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.info-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.info-item {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #007bff;
+}
+
+.privacy-container.dark .info-item {
+  background: #495057;
+}
+
+.info-item strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-family: inherit;
+}
+
+.privacy-container.dark .info-item strong {
+  color: #adb5bd;
+}
+
+.info-item p {
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+.privacy-container.dark .info-item p {
+  color: #ced4da;
+}
+
+.purpose-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.purpose-list li {
+  background: #f8f9fa;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  border-left: 3px solid #007bff;
+  font-family: inherit;
+}
+
+.privacy-container.dark .purpose-list li {
+  background: #495057;
+  color: #ced4da;
+}
+
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.security-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+}
+
+.privacy-container.dark .security-item {
+  background: #495057;
+  border-color: #6c757d;
+  color: #ced4da;
+}
+
+.security-icon {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.security-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: inherit;
+}
+
+.security-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-family: inherit;
+}
+
+.rights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.rights-item {
+  text-align: center;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
+}
+
+.privacy-container.dark .rights-item {
+  background: #495057;
+  border-color: #6c757d;
+  color: #ced4da;
+}
+
+.rights-icon {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.rights-item strong {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+/* ĐỔI TÊN: nav-link → privacy-nav-link */
+.privacy-nav-link {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-family: inherit;
+}
+
+/* ĐỔI TÊN: action-btn → privacy-action-btn */
+.privacy-action-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.privacy-action-btn.primary {
+  background: #007bff;
+  color: white;
+}
+
+.privacy-action-btn.primary:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.privacy-action-btn.success {
+  background: #28a745;
+  color: white;
+}
+
+.privacy-action-btn.success:hover {
+  background: #1e7e34;
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: white;
+}
+
+.privacy-action-btn.danger {
+  background: #dc3545;
+  color: white;
+}
+
+.privacy-action-btn.danger:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+.privacy-contact-card {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.privacy-contact-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.privacy-contact-card p {
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  font-family: inherit;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-info span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  font-family: inherit;
+}
+
+.privacy-navigation {
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.terms-link {
+  color: #007bff;
+  border: 2px solid #007bff;
+  background: transparent;
+}
+
+.terms-link:hover {
+  background: #007bff;
+  color: white;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.home-link {
+  color: #28a745;
+  border: 2px solid #28a745;
+  background: transparent;
+}
+
+.home-link:hover {
+  background: #28a745;
+  color: white;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .privacy-container {
+    padding-top: 100px;
+  }
+  
+  .privacy-main-title {
+    font-size: 2rem;
+  }
+  
+  .security-badges {
+    grid-template-columns: 1fr;
+  }
+  
+  .security-grid,
+  .rights-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .privacy-navigation {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Reset any potential margin/padding issues */
+.privacy-container h1,
+.privacy-container h2,
+.privacy-container h3,
+.privacy-container h4,
+.privacy-container h5,
+.privacy-container h6,
+.privacy-container p,
+.privacy-container ul,
+.privacy-container ol,
+.privacy-container li {
+  margin-top: 0;
+}
+
+/* Ensure no global style overrides */
+.privacy-container button,
+.privacy-container input,
+.privacy-container select,
+.privacy-container textarea {
+  font-family: inherit;
+}

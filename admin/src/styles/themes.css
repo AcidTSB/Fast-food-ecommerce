@@ -1,0 +1,48 @@
+/**** themes.css ****/
+
+:root {
+    --primary-color: #4CAF50; /* Green */
+    --secondary-color: #f44336; /* Red */
+    --background-color: #ffffff; /* Light background */
+    --text-color: #000000; /* Dark text */
+    --border-color: #dddddd; /* Light border */
+}
+
+.dark {
+    --primary-color: #81C784; /* Light Green */
+    --secondary-color: #EF5350; /* Light Red */
+    --background-color: #121212; /* Dark background */
+    --text-color: #ffffff; /* Light text */
+    --border-color: #333333; /* Dark border */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+}
+
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}

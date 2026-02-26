@@ -1,0 +1,142 @@
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.cart-icon:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.cart-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.cart-emoji {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.cart-text {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+  animation: pulse 2s infinite;
+  line-height: 1;
+  border: 2px solid white;
+}
+
+.cart-tooltip {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.cart-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.8);
+}
+
+.cart-icon:hover .cart-tooltip {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Dark theme */
+.dark .cart-text {
+  color: #fff;
+}
+
+.dark .cart-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .cart-text {
+    display: none;
+  }
+  
+  .cart-icon {
+    padding: 0.5rem;
+  }
+  
+  .cart-emoji {
+    font-size: 1.25rem;
+  }
+  
+  .cart-badge {
+    top: -5px;
+    right: -5px;
+    min-width: 16px;
+    height: 16px;
+    font-size: 0.7rem;
+  }
+  
+  .cart-tooltip {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-icon {
+    padding: 0.25rem;
+  }
+  
+  .cart-emoji {
+    font-size: 1.1rem;
+  }
+}

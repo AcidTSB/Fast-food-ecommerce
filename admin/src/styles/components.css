@@ -1,0 +1,154 @@
+/* filepath: admin-management-system/src/styles/components.css */
+
+/* Layout Styles */
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+}
+
+.header {
+  background-color: #34495e;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.breadcrumb {
+  margin: 10px 0;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  flex: 1;
+  padding: 20px;
+  background-color: #ecf0f1;
+}
+
+.stats-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recent-orders {
+  margin-top: 20px;
+}
+
+/* Product Management Styles */
+.product-list {
+  margin-top: 20px;
+}
+
+.product-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Order Management Styles */
+.order-list {
+  margin-top: 20px;
+}
+
+.order-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* User Management Styles */
+.user-list {
+  margin-top: 20px;
+}
+
+.user-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Common Styles */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.confirm-modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+/* Dark Mode Styles */
+.dark .sidebar {
+  background-color: #1c1c1c;
+}
+
+.dark .header {
+  background-color: #2c2c2c;
+}
+
+.dark .dashboard {
+  background-color: #2c2c2c;
+}
+
+.dark .stats-card,
+.dark .product-card,
+.dark .order-card,
+.dark .user-card {
+  background-color: #3c3c3c;
+  color: white;
+}
+
+.dark .table th {
+  background-color: #444;
+  color: white;
+}
+
+.dark .table td {
+  background-color: #333;
+  color: white;
+}

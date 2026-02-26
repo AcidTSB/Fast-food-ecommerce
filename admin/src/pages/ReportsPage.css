@@ -1,0 +1,155 @@
+.reports-page {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 36px 18px 48px 18px;
+  background: #f8fafc;
+  border-radius: 18px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.reports-page h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.reports-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 0;
+}
+
+.reports-row:first-child {
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .reports-row {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
+.report-section {
+  flex: 1 1 0;
+  min-width: 0;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(37,99,235,0.07);
+  padding: 28px 24px 24px 24px;
+  margin-bottom: 32px;
+}
+
+.report-section h2 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 18px;
+  letter-spacing: 0.2px;
+}
+
+.sales-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 180px;
+  margin-bottom: 10px;
+}
+
+.sales-chart > div {
+  flex: 1;
+  text-align: center;
+}
+
+.sales-chart > div > div:first-child {
+  background: linear-gradient(135deg, #4f8cff 60%, #2563eb 100%);
+  border-radius: 4px;
+  margin-bottom: 4px;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  min-height: 24px;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+}
+
+.sales-chart > div > div:last-child {
+  font-size: 13px;
+  color: #555;
+  margin-top: 2px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  background: #f9fafb;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(37,99,235,0.06);
+}
+
+.data-table th, .data-table td {
+  padding: 12px 10px;
+  text-align: left;
+}
+
+.data-table th {
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 1rem;
+  font-weight: 700;
+  border-bottom: 2px solid #c7d2fe;
+}
+
+.data-table td {
+  font-size: 0.98rem;
+  color: #22223b;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Đảm bảo các bảng/biểu đồ không bị tràn */
+.report-section .sales-chart,
+.report-section .data-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Responsive: về dọc khi màn nhỏ */
+@media (max-width: 1100px) {
+  .reports-row {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .report-section {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .reports-page {
+    padding: 12px 2vw 24px 2vw;
+  }
+  .report-section {
+    padding: 14px 6px 12px 6px;
+    margin-bottom: 18px;
+  }
+  .sales-chart {
+    gap: 8px;
+  }
+  .data-table th, .data-table td {
+    padding: 7px 4px;
+    font-size: 0.93rem;
+  }
+}
