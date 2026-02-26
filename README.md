@@ -79,8 +79,4 @@ Website thương mại điện tử đặt thức ăn nhanh trực tuyến (gà 
    ```
 
 ---
-
-## Mô tả cho CV
-
-> **Fast Food E-commerce** — Full-stack web application
-> Xây dựng hệ thống đặt thức ăn nhanh trực tuyến với kiến trúc client–admin–server tách biệt. Tech stack: **React.js, Node.js, Express.js, MySQL, MongoDB, TailwindCSS**. Tích hợp thanh toán MOMO/COD, chatbot hỗ trợ, gợi ý sản phẩm thông minh, Google Maps, PWA và trang quản trị đầy đủ chức năng.
+maded in 2024
