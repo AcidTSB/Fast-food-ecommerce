@@ -1,88 +1,86 @@
 # Fast Food E-commerce
 
-Welcome to the Fast Food E-commerce project! This application is built using the MERN stack (MongoDB, Express.js, React.js, Node.js) and is designed to provide a seamless online ordering experience for fast food products such as fried chicken, burgers, combos, and beverages.
+## Giới thiệu
 
-## Features
+Website thương mại điện tử đặt thức ăn nhanh trực tuyến (gà rán, burger, combo, đồ uống). Dự án có 3 phần riêng biệt:
 
-### Core Features
-- **Modern UI/UX**: A responsive design that works well on both mobile and desktop devices.
-- **Dark Mode / Light Mode**: Users can toggle between themes for a personalized experience.
-- **Product Search and Filtering**: Easily find products by searching or filtering by categories.
-- **Product Details**: Detailed pages for each product, including descriptions, prices, and nutritional information.
-- **Shopping Cart**: Add, remove, and modify product quantities in the cart.
-- **Multiple Payment Methods**: Supports various payment options including MOMO, COD, bank cards, and e-wallets.
-- **User Authentication**: Users can register, log in, and manage their profiles.
-- **Order Tracking**: Users can track their orders through various statuses.
-- **Discount Codes**: Users can apply discount codes for promotions.
+- **Client** — Giao diện người dùng để đặt hàng
+- **Admin** — Trang quản trị nội bộ
+- **Server** — REST API backend
 
-### Advanced Features
-- **Smart Combo Suggestions**: Based on user order history.
-- **Recommended Add-ons**: Suggestions for additional items based on user behavior.
-- **Location Memory**: Remembers delivery addresses and suggests nearby stores.
-- **Time-based Recommendations**: Suggests meals based on the time of day.
-- **Exit Popup for Discounts**: Displays discount codes when users attempt to leave the site.
-- **Chatbot Support**: Provides quick assistance for order placement and inquiries.
+---
 
-### Modern Enhancements
-- **Progressive Web App (PWA)**: Users can install the app on their devices for offline access.
-- **Google Maps Integration**: Helps users select delivery locations.
-- **Analytics Integration**: Uses Google Analytics and Facebook Pixel for user behavior tracking.
+## Tính năng chính
 
-## Getting Started
+- Đăng ký / đăng nhập, quản lý tài khoản
+- Tìm kiếm & lọc sản phẩm theo danh mục
+- Giỏ hàng, thanh toán đa phương thức (MOMO, COD, ví điện tử, thẻ ngân hàng)
+- Theo dõi trạng thái đơn hàng, mã giảm giá
+- Gợi ý combo thông minh theo lịch sử mua hàng
+- Chatbot hỗ trợ đặt hàng
+- Tích hợp Google Maps chọn địa chỉ giao hàng
+- Dark / Light mode, giao diện responsive
+- PWA (Progressive Web App) — có thể cài về máy, hỗ trợ offline
+- Trang Admin quản lý sản phẩm, đơn hàng, người dùng, danh mục, báo cáo
 
-### Prerequisites
+---
+
+## Công nghệ sử dụng
+
+| Tầng | Công nghệ |
+|---|---|
+| **Frontend** | React.js 18, React Router DOM, TailwindCSS, React Icons |
+| **State Management** | Redux, React Context API |
+| **Backend** | Node.js, Express.js |
+| **Database** | MySQL (`mysql2`) + MongoDB (`mongoose`) |
+| **Auth** | JWT (`jsonwebtoken`), bcryptjs |
+| **Upload ảnh** | Multer, Cloudinary |
+| **Validation & Security** | express-validator, Joi, Helmet, express-rate-limit |
+| **PWA** | Service Worker |
+| **Analytics** | Google Analytics, Facebook Pixel |
+| **Khác** | Axios, CORS, dotenv, nodemon |
+
+---
+
+## Cài đặt & Chạy dự án
+
+### Yêu cầu
+
 - Node.js
+- MySQL
 - MongoDB
-- npm or yarn
+- npm hoặc yarn
 
-### Installation
+### Các bước cài đặt
 
-1. Clone the repository:
-   ```
+1. Clone repository:
+   ```bash
    git clone <repository-url>
-   ```
-
-2. Navigate to the project directory:
-   ```
    cd fast-food-ecommerce
    ```
 
-3. Install server dependencies:
+2. Cài đặt toàn bộ dependencies:
+   ```bash
+   npm run install-all
    ```
+
+3. Cấu hình biến môi trường:
+   - Tạo file `.env` trong thư mục `server/` theo mẫu `.env.example` và điền các giá trị tương ứng.
+
+4. Khởi tạo database:
+   ```bash
    cd server
-   npm install
+   npm run setup-db
    ```
 
-4. Install client dependencies:
-   ```
-   cd client
-   npm install
-   ```
-
-5. Set up environment variables:
-   - Copy `.env.example` to `.env` in the server directory and fill in the required values.
-
-6. Start the server:
-   ```
-   cd server
+5. Chạy toàn bộ dự án (server + admin + client):
+   ```bash
    npm start
    ```
 
-7. Start the client:
-   ```
-   cd client
-   npm start
-   ```
+---
 
-## Contributing
+## Mô tả cho CV
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to the open-source community for their contributions and support.
-- Special thanks to the developers who inspired this project.
+> **Fast Food E-commerce** — Full-stack web application
+> Xây dựng hệ thống đặt thức ăn nhanh trực tuyến với kiến trúc client–admin–server tách biệt. Tech stack: **React.js, Node.js, Express.js, MySQL, MongoDB, TailwindCSS**. Tích hợp thanh toán MOMO/COD, chatbot hỗ trợ, gợi ý sản phẩm thông minh, Google Maps, PWA và trang quản trị đầy đủ chức năng.
